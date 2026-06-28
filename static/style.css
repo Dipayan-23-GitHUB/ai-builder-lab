@@ -1,0 +1,54 @@
+body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1e1e1e; color: #d4d4d4; display: flex; flex-direction: column; height: 100vh; }
+header { background: #252526; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+header a { color: #007acc; text-decoration: none; }
+.main-container { display: flex; flex: 1; overflow: hidden; }
+
+/* Left Column */
+.col-left { width: 30%; border-right: 1px solid #333; display: flex; flex-direction: column; }
+#chat-box { flex: 1; padding: 20px; overflow-y: auto; }
+.msg { margin-bottom: 15px; display: flex; gap: 10px; }
+.msg.alex { justify-content: flex-start; }
+.msg.teacher { justify-content: flex-end; }
+.avatar { width: 30px; height: 30px; border-radius: 50%; background: #007acc; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; flex-shrink: 0; }
+.avatar.teacher-av { background: #00ba7c; }
+.bubble { background: #2d2d2d; padding: 10px 15px; border-radius: 10px; max-width: 80%; line-height: 1.4; }
+.nav-buttons { padding: 15px; display: flex; gap: 10px; border-top: 1px solid #333; }
+button { padding: 8px 16px; cursor: pointer; border: none; border-radius: 4px; font-weight: bold; }
+#prev-btn { background: #333; color: #fff; }
+#next-btn { background: #007acc; color: #fff; flex: 1; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Middle Column */
+.col-mid { width: 20%; border-right: 1px solid #333; padding: 20px; overflow-y: auto; }
+#topic-list { list-style: none; padding: 0; }
+#topic-list li { padding: 12px; margin-bottom: 10px; background: #2d2d2d; border-radius: 6px; cursor: pointer; transition: 0.2s; border-left: 4px solid transparent; }
+#topic-list li:hover { background: #3e3e42; }
+#topic-list li.active { border-left: 4px solid #007acc; background: #3e3e42; }
+#topic-list li.completed { border-left: 4px solid #00ba7c; }
+#topic-list li.locked { opacity: 0.4; cursor: not-allowed; }
+
+/* Right Column */
+.col-right { width: 50%; display: flex; flex-direction: column; padding: 20px; }
+.lab-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.btn-run { background: #00ba7c; color: #fff; }
+.hint-box { background: #252526; border-left: 4px solid #007acc; padding: 10px; margin-bottom: 10px; font-size: 0.9em; color: #ce9178; min-height: 40px; }
+#code-editor { flex: 1; background: #1e1e1e; color: #d4d4d4; border: 1px solid #333; border-radius: 4px; padding: 10px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; resize: none; min-height: 200px; }
+.console { background: #000; color: #4ec9b0; padding: 10px; border-radius: 4px; margin-top: 10px; height: 150px; overflow-y: auto; font-family: monospace; white-space: pre-wrap; border: 1px solid #333; }
+.btn-submit { margin-top: 10px; background: #f48771; color: #fff; padding: 12px; font-size: 16px; display: none; }
+.btn-submit.show { display: block; }
+
+/* Auth Page */
+.auth-body { display: flex; justify-content: center; align-items: center; background: #1e1e1e; }
+.auth-container { background: #252526; padding: 40px; border-radius: 8px; width: 300px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+.auth-container h1 { color: #007acc; margin-bottom: 20px; }
+.tabs { display: flex; margin-bottom: 20px; border-bottom: 2px solid #333; }
+.tabs a { flex: 1; padding: 10px; text-decoration: none; color: #888; font-weight: bold; }
+.tabs a.active { color: #007acc; border-bottom: 2px solid #007acc; margin-bottom: -2px; }
+.auth-container input { width: 100%; padding: 10px; margin-bottom: 15px; background: #333; border: 1px solid #444; color: #fff; border-radius: 4px; box-sizing: border-box; }
+.auth-container button { width: 100%; padding: 10px; background: #007acc; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+.error-msg { background: #f48771; color: #000; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-size: 0.9em; }
+
+/* Modal */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background: #252526; padding: 40px; border-radius: 8px; text-align: center; max-width: 400px; border: 2px solid #00ba7c; }
+.modal-content h2 { color: #00ba7c; }

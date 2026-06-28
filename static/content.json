@@ -1,0 +1,94 @@
+{
+  "conversation": [
+    {
+        "speaker": "Alex",
+        "text": "Teacher, I want to learn Generative AI, but I'm not sure where to start."
+    },
+    {
+        "speaker": "Teacher",
+        "text": "Alex, do you know Deep Learning? Or, to go a step further back, are you familiar with PyTorch or TensorFlow?"
+    },
+    {
+        "speaker": "Alex",
+        "text": "I know the basics of machine learning and Python, but I'm not familiar with TensorFlow or PyTorch."
+    },
+    {
+        "speaker": "Teacher",
+        "text": "Alex, to understand and build Generative AI applications, you first need to learn Deep Learning. And to work with Deep Learning, you need a framework such as PyTorch. Let's start by learning the basics of PyTorch!"
+    },
+    {
+        "speaker": "Alex",
+        "text": "I already know basic Python and NumPy. Why isn't that enough? Why should I use PyTorch instead of just NumPy?"
+    },
+    {
+        "speaker": "Teacher",
+        "text": "NumPy is an excellent library, but it doesn't provide GPU acceleration or Automatic Differentiation (Autograd). PyTorch uses tensors and builds a computational graph to automatically track mathematical operations for learning. Let's create our first tensor!"
+    },
+    {
+        "speaker": "Alex",
+        "text": "Okay, I've created a tensor. How do I perform mathematical operations with it?"
+    },
+    {
+        "speaker": "Teacher",
+        "text": "First, you need to understand the difference between element-wise operations and matrix operations. The dot product (or matrix multiplication using @) is at the heart of Deep Learning because it computes the weighted sum of inputs."
+    },
+    {
+        "speaker": "Alex",
+        "text": "What if my data has the wrong shape? For example, what if an image needs to be flattened?"
+    },
+    {
+        "speaker": "Teacher",
+        "text": "That's where `view()` comes in. It reshapes the data without changing its values. We commonly use it to flatten images before passing them to the final layer of a neural network."
+    },
+    {
+        "speaker": "Alex",
+        "text": "What about those 'activation functions' that I keep hearing about?"
+    },
+    {
+        "speaker": "Teacher",
+        "text": "Activation functions such as ReLU introduce non-linearity, enabling neural networks to learn complex patterns. Finally, we'll build a Single Neuron Simulator as your final project!"
+    }
+],
+  "topics": [
+    {
+      "id": "create_tensor",
+      "title": "1. Create Tensor",
+      "unlock_step": 5,
+      "hint": "Use torch.tensor() for lists or torch.randn() for random numbers. Tensors are the building blocks!",
+      "starter_code": "import torch\n\n# Create a tensor from a list\nmy_list = [1, 2, 3]\n# TODO: Convert my_list to a tensor named 't'\nt = \n\nprint(t)",
+      "success_condition": "tensor([1, 2, 3])"
+    },
+    {
+      "id": "dot_product",
+      "title": "2. Dot Product",
+      "unlock_step": 7,
+      "hint": "Use the '@' operator or torch.matmul(). This is how neurons calculate inputs!",
+      "starter_code": "import torch\n\nA = torch.tensor([[1, 2], [3, 4]])\nB = torch.tensor([[5, 6], [7, 8]])\n\n# TODO: Calculate the dot product of A and B\nresult = \n\nprint(result)",
+      "success_condition": "tensor([[19, 22], [43, 50]])"
+    },
+    {
+      "id": "reshape_view",
+      "title": "3. Reshape (View)",
+      "unlock_step": 9,
+      "hint": "Use .view(). The '-1' tells PyTorch to automatically calculate the dimension size.",
+      "starter_code": "import torch\n\n# A batch of 2 images, 28x28 pixels\nimages = torch.randn(2, 28, 28)\n\n# TODO: Flatten the images to shape (2, 784) using .view()\nflat_images = \n\nprint(flat_images.shape)",
+      "success_condition": "torch.Size([2, 784])"
+    },
+    {
+      "id": "activations",
+      "title": "4. Activations",
+      "unlock_step": 11,
+      "hint": "Use torch.relu(). It squashes negative numbers to 0.",
+      "starter_code": "import torch\n\nx = torch.tensor([-2.0, 0.0, 2.0])\n\n# TODO: Apply ReLU activation to x\nactivated = \n\nprint(activated)",
+      "success_condition": "tensor([0., 0., 2.])"
+    },
+    {
+      "id": "final_project",
+      "title": "5. Final Project: Neuron",
+      "unlock_step": 12,
+      "hint": "Combine what you learned! Create inputs/weights, dot product, add bias, apply ReLU, and call .backward() on a tensor with requires_grad=True.",
+      "starter_code": "import torch\n\n# 1. Create inputs: [0.5, 0.8, 0.2]\ninputs = torch.tensor([0.5, 0.8, 0.2])\n\n# 2. Create weights with requires_grad=True\nweights = torch.tensor([0.4, -0.2, 0.9], requires_grad=True)\n\n# 3. Dot product and add bias (0.1)\nz = (inputs @ weights) + 0.1\n\n# 4. Apply ReLU\noutput = torch.relu(z)\n\n# 5. Calculate gradients\noutput.backward()\n\nprint('Weights Gradient:', weights.grad)",
+      "success_condition": "Weights Gradient: tensor([0.4000, 0.8000, 0.2000])"
+    }
+  ]
+}
