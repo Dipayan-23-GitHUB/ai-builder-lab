@@ -3,3 +3,4 @@ Werkzeug==2.3.6
 torch
 numpy
 pytest==7.4.0
+gunicorn==21.2.0
