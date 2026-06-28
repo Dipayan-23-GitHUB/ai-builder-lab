@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Builder Lab - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h2>PyTorch Basics Lab</h2>
+        <span>Welcome, {{ email }} | <a href="{{ url_for('logout') }}">Logout</a></span>
+    </header>
+    
+    <div class="main-container">
+        <!-- Left Column: Conversation -->
+        <div class="col-left">
+            <div id="chat-box"></div>
+            <div class="nav-buttons">
+                <button id="prev-btn" disabled>Previous</button>
+                <button id="next-btn">Next</button>
+            </div>
+        </div>
+
+        <!-- Middle Column: Topics -->
+        <div class="col-mid">
+            <h3>Topics</h3>
+            <ul id="topic-list"></ul>
+        </div>
+
+        <!-- Right Column: Code Lab -->
+        <div class="col-right">
+            <div class="lab-header">
+                <h3 id="topic-title">Select a Topic</h3>
+                <button id="run-btn" class="btn-run">Run Code</button>
+            </div>
+            <div id="hint-box" class="hint-box">Click a topic on the left to see hints and starter code.</div>
+            <textarea id="code-editor" spellcheck="false" placeholder="# Write your PyTorch code here..."></textarea>
+            <div id="output-console" class="console">Output will appear here...</div>
+            <button id="submit-btn" class="btn-submit" disabled>Submit Final Project</button>
+        </div>
+    </div>
+
+    <!-- Modal for Coming Soon -->
+    <div id="modal-overlay" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h2>Congratulations!</h2>
+            <p>You have completed the PyTorch Basics module.</p>
+            <h3>Next Module: Coming Soon!</h3>
+            <button onclick="document.getElementById('modal-overlay').style.display='none'">Close</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
